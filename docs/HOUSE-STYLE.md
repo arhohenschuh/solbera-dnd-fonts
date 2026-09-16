@@ -107,12 +107,13 @@ the labels bold and maroon.
 
 ## Where the fonts come from
 
-Five are used as published. One is a local build, because Word cannot switch on
-the OpenType features it needs.
+Four are used as published. Two are local builds — one because Word cannot
+switch on the OpenType features it needs, one because a punctuation mark was
+drawn for a kind of setting we do not use.
 
 | Font | Source | Licence | Modified? |
 | --- | --- | --- | --- |
-| Nodesto Caps Condensed | Solbera D&D font set | CC BY-SA 4.0 | no |
+| **Nodesto Caps Condensed** | [../fonts/custom/Nodesto Caps Condensed/README.txt](../fonts/custom/Nodesto%20Caps%20Condensed/README.txt) | CC BY-SA 4.0 | **yes — built here** |
 | Bookinsanity Remake | Solbera D&D font set | CC BY-SA 4.0 | no |
 | Scaly Sans Remake | Solbera D&D font set | CC BY-SA 4.0 | no |
 | Scaly Sans Caps | Solbera D&D font set | CC BY-SA 4.0 | no |
@@ -147,6 +148,43 @@ Plus one refinement: six punctuation marks — `:` `;` `-` `–` `—` `·` — 
 font's `case` forms, which sit correctly among capitals. The default colon tops
 out at 0.61 of cap height and reads as sunken; the case form sits at 0.71.
 
+### Why the Nodesto build exists
+
+Set a title with a colon in it — `Appendix: Wild Magic Table` — and the stock
+Nodesto colon floats. Both dots sit clear of the baseline *and* clear of the cap
+line, so beside these very heavy condensed capitals the mark reads as a small
+detached cluster rather than as punctuation belonging to the line.
+
+| | stock Nodesto | Baskervville Caps | the build |
+| --- | --- | --- | --- |
+| lower dot bottom | 0.214 cap | 0.000 cap | **0.000 cap** |
+| upper dot top | 0.797 cap | 0.707 cap | **0.723 cap** |
+| dot diameter | 0.165 cap | 0.177 cap | **0.177 cap** |
+| gap between dots | 0.254 cap | 0.369 cap | **0.369 cap** |
+
+Nodesto has no `GSUB` table at all — no features, no alternates, 115 glyphs — so
+there was no `case` form to freeze the way there was in Baskervville. The dots
+were moved in the outline instead. Two glyphs per weight, colon and semicolon;
+no other outline, metric, kern or advance width was touched, so line breaks and
+text length are unchanged.
+
+Dot diameter is now 0.177 of cap in Regular and Italic, which is Nodesto's own
+cap stem width — the standard colon-to-stem relationship. Bold and Bold Italic
+already drew 0.190 and kept theirs, since a bolder weight should have heavier
+dots; their gap closes up to 0.343 cap to hold the same 0.723 span.
+
+The semicolon follows the colon: upper dot in the same place, comma aligned by
+its top to the colon's lower dot. That drops the comma's tail to −159 units in
+Regular, where the font's own standalone comma sits at −158 — a one-unit match,
+which is independent confirmation that the rule is right rather than a number
+picked to look nice.
+
+The build keeps the family name `Nodesto Caps Condensed` and carries Version
+1.100 against the Solbera original's 1.0, so it replaces the original on install
+and nothing in the template, the skill or the validator has to change. The cost
+is that reinstalling from `fonts/solbera/` silently puts the old colon back —
+see the warning under Installing.
+
 ---
 
 ## Installing
@@ -154,11 +192,16 @@ out at 0.61 of cap height and reads as sunken; the case form sits at 0.71.
 Install every `.otf` and `.ttf` from these folders, relative to the repository root:
 
     fonts/solbera/Bookinsanity/
-    fonts/solbera/Nodesto Caps Condensed/
     fonts/solbera/Scaly Sans/
     fonts/solbera/Scaly Sans Caps/
     fonts/solbera/Zatanna Misdirection/
     fonts/custom/Baskervville Caps/
+    fonts/custom/Nodesto Caps Condensed/
+
+**Take Nodesto from `fonts/custom/`, not from `fonts/solbera/`.** Both install
+under the same family name, so whichever you install last wins. The custom build
+reports Version 1.100 in the font properties dialog; the unfixed original
+reports 1.0. If a title's colon ever looks wrong again, check that number first.
 
 Select the files in Explorer, right-click, **Install for all users**. Restart
 Word afterwards — it reads the font list once at startup.
@@ -208,7 +251,9 @@ machine first — OpenType/CFF embedding support varies by Word version.
 ## Licensing
 
 The Solbera faces are CC BY-SA 4.0: credit the author and license derivatives
-the same way. Baskervville Caps is SIL OFL 1.1 and must stay OFL.
+the same way. The Nodesto build here is such a derivative — the modification is
+indicated in its README and in the font's version string, and it stays CC BY-SA.
+Baskervville Caps is SIL OFL 1.1 and must stay OFL.
 
 Separately from font licensing: imitating official D&D book typography in a
 *distributed* product can raise trade-dress questions even when every font is
@@ -222,4 +267,5 @@ freely licensed. Personal and table use is not a concern.
 | --- | --- | --- | --- |
 | v1 | Andada SC | TeX Gyre Bonum | original house style |
 | v2 | Mr Eaves SC Remake | Bookinsanity Remake | moved to the Solbera set; digits sat at small-cap height, so `L1:` and `S1.` broke |
-| **v3** | **Baskervville Caps** | **Bookinsanity Remake** | current — Baskerville register like Mrs Eaves, cap-height digits, corrected parentheses and colon |
+| v3 | Baskervville Caps | Bookinsanity Remake | Baskerville register like Mrs Eaves, cap-height digits, corrected parentheses and colon |
+| **v3.1** | **Baskervville Caps** | **Bookinsanity Remake** | current — same stack; Nodesto's floating colon and semicolon rebuilt to seat on the baseline (font Version 1.100). No style, size or colour changed, so v3 documents need no migration |
