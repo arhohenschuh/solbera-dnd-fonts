@@ -1,6 +1,13 @@
-.*
+.DS_Store
+Thumbs.db
+desktop.ini
 ~*
 *#
-#*
+\#*
 *.swp
-!.gitignore
+*.swo
+*.tmp
+*.temp
+*.bak
+*.wbk
+*.asd
