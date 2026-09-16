@@ -10,6 +10,11 @@ synchronization and upstream pull requests are no longer part of the workflow.
 
 - Formatting standard: [docs/HOUSE-STYLE.md](docs/HOUSE-STYLE.md).
 - Current Word template: [templates/5e Module_Format.docx](templates/5e%20Module_Format.docx).
+- Installable v3 formatting skill: [templates/dnd-format-style-guide/SKILL.md](templates/dnd-format-style-guide/SKILL.md).
+  Includes an exact copy of the current template, the builder, validator, and
+  regression tests. Generation preserves the template's styles; no v1 restyling
+  step is needed. Requires Python with `python-docx` and `lxml`, plus the house
+  fonts on the machine rendering the document.
 - Original font specimen: open [index.html](index.html) directly in a browser.
   No build, dependency installation, or development server is required.
 - Reusable web-font definitions: [stylesheet.css](stylesheet.css). Its font URLs

@@ -1,0 +1,61 @@
+{
+  "_comment": "Example content spec for build_adventure_docx.py. A node is a flat list of typed blocks rendered in order. Inline **bold** is supported in text fields. Run: python scripts/build_adventure_docx.py references/example_node.json out.docx",
+  "_blocks": [
+    {"type": "title", "text": "N17: Haunted Halls of Slaughter"},
+    {"type": "epigraph", "text": "\u201cCivilization is a lie; let the beast awaken and chase the game!\u201d", "by": "Baphomet"},
+
+    {"type": "h2", "text": "Revelations"},
+    {"type": "bullet", "text": "A map in the office shows this property and how to operate the secret door."},
+    {"type": "bullet", "text": "Documents recovered elsewhere point to this property."},
+
+    {"type": "h2", "text": "Overview"},
+    {"type": "body", "text": "**City District.** \u201cCraftsmen\u2019s Quarter\u201d, **Street Name.** \u201cMiller\u2019s Way\u201d"},
+    {"type": "boxed", "text": "The weathered stone structure rises three stories, its thick walls built to endure decades of heavy use."},
+    {"type": "label", "label": "Purpose", "text": "The PCs can investigate the hunting grounds and find clues about the past."},
+    {"type": "label", "label": "History", "text": "Prior to the current cult, the dungeon was occupied by the Cult of the Dragon."},
+    {"type": "label", "label": "Secret Door", "text": "A star-shaped anchor plate must be pulled and turned left; the door is counterbalanced and pushed inward to open."},
+
+    {"type": "h2", "text": "Main Scenario"},
+    {"type": "h3", "text": "Haunted Halls Features"},
+    {"type": "label", "label": "Atmosphere", "text": "The air feels cold and dank. An oppressive atmosphere weighs on the PCs."},
+    {"type": "label", "label": "Lighting", "text": "Sconces line the walls but hold no torches; the halls remain pitch black."},
+    {"type": "label", "label": "Doors", "text": "Sturdy wood reinforced with iron. Locks require a DC 15 check to open."},
+
+    {"type": "h3", "text": "Random Encounters"},
+    {"type": "body", "text": "Random encounters may occur if the PCs make excessive noise or move carelessly."},
+    {"type": "table", "header": ["D6", "Monster", "See area"],
+      "rows": [["1-2", "Gray ooze (or ochre jelly)", "S3"], ["3-4", "Poltergeist", "S8"], ["5-6", "Wight (plus zombies)", "S12"]]},
+
+    {"type": "h3", "text": "Adversary Roster"},
+    {"type": "table", "header": ["Encounter", "Area", "Notes"],
+      "rows": [["1 skeleton (1-2 zombies)", "S2", "Smash"], ["3 gray ooze", "S3", "Hidden in pool of water"], ["1 wight (+ zombies)", "S12", "Goes for the kill; leads PCs into the S7 trap"]]},
+
+    {"type": "h2", "text": "Locations of The Haunted Halls of Slaughter (S)"},
+    {"type": "body", "text": "The following locations are keyed to the map of the Haunted Halls (S)."},
+
+    {"type": "h3", "text": "S1: The Entrance"},
+    {"type": "boxed", "text": "A steep flight of stairs made of yellowish stone blocks descends into the cold darkness."},
+    {"type": "label", "label": "Metal plate and handle", "text": "The mechanism used to open and close the secret door leading inward."},
+
+    {"type": "h3", "text": "S2: Western Hallway"},
+    {"type": "boxed", "text": "At the bottom of the stairs lie the remains of a humanoid clutching a shortsword."},
+    {"type": "label", "label": "Denizens", "text": "The corpse animates as a **skeleton** as soon as the PCs investigate it."},
+    {"type": "tuning", "tiers": {
+      "Frail": "A **skeleton** rises to give you a bony grin.",
+      "Baseline": "A **skeleton** with maximum hit points (20) rises to give you a bony grin.",
+      "Strong": "A **skeleton** with maximum hit points (20) rises and a **zombie** shuffles in after one round.",
+      "Hard to kill": "A **skeleton** with maximum hit points (20) rises and two **zombies** shuffle in after one round."}},
+    {"type": "label", "label": "Loot", "text": "The PCs find 3 gp and 31 sp in a purse full of holes. The shortsword is rusty but usable."},
+
+    {"type": "h2", "text": "Developments"},
+    {"type": "h3", "text": "The Curse or Blessing of Baphomet\u2019s Influence"},
+    {"type": "h4", "text": "Transformation to a minotaur"},
+    {"type": "body", "text": "The transformation did not happen willingly; the PC keeps a hazy memory of the group."},
+
+    {"type": "h2", "text": "Clues"},
+    {"type": "h3", "text": "Evidence"},
+    {"type": "bullet", "text": "Letters found in area S12 tie the site to outside agents."},
+    {"type": "h3", "text": "Leads"},
+    {"type": "bullet", "text": "An invitation points the PCs toward Ironwood Wizardry."}
+  ]
+}
